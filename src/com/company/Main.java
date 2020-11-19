@@ -87,23 +87,23 @@ public class Main  {
 
 
     }
-    public static void swapRowFunction(int index1, int index2, String[][] swap)
+    public static void swapRowFunction(int firstRow, int secondRow, String[][] swap)
     {
 
         String tempArray[][] = new String[50][50];
         tempArray = swap.clone();
-        swap[index1] = tempArray[index2];
-        swap[index2] = tempArray[index1];
+        swap[firstRow] = tempArray[secondRow];
+        swap[secondRow] = tempArray[firstRow];
 
     }
-    public static void swapWordFunction(int index1, int index2, int index3, int index4, String[][] swap)
+    public static void swapWordFunction(int fisrtWordRow, int firstWordIndex, int secondWordRow, int secondWordIndex, String[][] swap)
     {
-        String firstWord = swap[index1][index2];
-        String secondWord = swap[index3][index4];
-        swap[index3][index4] = firstWord;
-        swap[index1][index2] = secondWord;
+        String firstWord = swap[fisrtWordRow][firstWordIndex];
+        String secondWord = swap[secondWordRow][secondWordIndex];
+        swap[secondWordRow][secondWordIndex] = firstWord;
+        swap[fisrtWordRow][firstWordIndex] = secondWord;
     }
-    public static int[] notNullCells(String[][] arr, int rows)
+    public static int[] wordsOnRowsNumber(String[][] arr, int rows)
     {
         int array[] = new int[50];
         for(int i=0; i<rows; i++)
@@ -120,7 +120,7 @@ public class Main  {
 
     public static void saveFile(String[][] wordsArr, int rowCounter, String filePath)
     {
-        int wordsOnRows[]= notNullCells(wordsArr, rowCounter);
+        int wordsOnRows[]= wordsOnRowsNumber(wordsArr, rowCounter);
         try {
             FileWriter writer = new FileWriter(filePath);
             for(int i=0; i< rowCounter; i++)
@@ -138,3 +138,4 @@ public class Main  {
         }
     }
 }
+
